@@ -60,21 +60,26 @@ const TopSearch = () => {
 
     const handleFamilyChange = event => {
         setFamily(event.target.value)
-        if (brand === '') {
-            dispatch(getBrand(event.target.value))
-        }
-        // if (category === '') {
-            dispatch(getCategory(event.target.value, brand))
+        dispatch(getBrand(event.target.value))
+        dispatch(getCategory(event.target.value, ''))
+        setBrand('')
+        setCategory('')
+        // if (brand === '') {
+        //     dispatch(getBrand(event.target.value))
         // }
+
+        // dispatch(getCategory(event.target.value, brand))
+
     }
 
     const handleBrandChange = event => {
         setBrand(event.target.value)
-        if (family === '') {
-            dispatch(getFamily(event.target.value))
-        }
+        setCategory('')
+        // if (family === '') {
+        //     dispatch(getFamily(event.target.value))
+        // }
         // if (category === '') {
-            dispatch(getCategory(family, event.target.value))
+        dispatch(getCategory(family, event.target.value))
         // }
     }
 

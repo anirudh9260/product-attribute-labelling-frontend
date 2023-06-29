@@ -13,21 +13,22 @@ import { updateProductAttributesAction, getDistinctFamilyAttributes } from '../.
 
 function MainPage() {
     const dispatch = useAppDispatch()
-    const [missingAtttributesOptions, setMissingAttributeOptions] = useState({})
     const productState = useAppSelector(state => state.productReducer)
     let productItems = []
     let productAttributes = []
     const label = { inputProps: { 'aria-label': 'Switch demo' } }
-
+    
     const [selectedProduct, setselectedProduct] = useState('')
     const [productId, setProductId] = useState('')
     const [selectedProductAttributes, setSelectedProductAttributes] = useState(
         {},
     )
-    const [selectedProductAttributesWithMissing, setSelectedProductAttributesWithMissing] = useState(
-        {},
-    )
+    const [
+        selectedProductAttributesWithMissing,
+        setSelectedProductAttributesWithMissing,
+    ] = useState({})
     const [updatedProductAttributes, setUpdatedProductAttributes] = useState({})
+    const [missingAtttributesOptions, setMissingAttributeOptions] = useState({})
 
     const [selectedFamilyConfig, setSelectedFamilyConfig] = useState({})
     const [missingChecked, setMissingChecked] = React.useState(true)
