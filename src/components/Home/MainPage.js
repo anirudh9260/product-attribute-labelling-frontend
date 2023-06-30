@@ -36,10 +36,10 @@ function MainPage() {
 
     useEffect(() => {
         setMissingAttributeOptions(prevOptions => ({
-          ...prevOptions,
-          [productState.distinctFamilyAttributes.attribute]: productState.distinctFamilyAttributes.response,
+            ...prevOptions,
+            [productState.distinctFamilyAttributes.attribute]: productState.distinctFamilyAttributes.response,
         }));
-      }, [productState.distinctFamilyAttributes]);
+    }, [productState.distinctFamilyAttributes]);
 
     const selectProductHandle = event => {
         setMissingAttributeOptions({})
@@ -105,7 +105,7 @@ function MainPage() {
     }
 
 
-    
+
     const handleProductAttributeValue = (key, value) => {
         if (value.length > 1) {
             value = value.trimStart();
@@ -157,6 +157,7 @@ function MainPage() {
                     label={key}
                     sx={{ minWidth: 250, m: 1 }}
                     value={value}
+                    required
                     onChange={e => handleProductAttributeValue(key, e.target.value)}
                 />
             ) : (
@@ -167,6 +168,7 @@ function MainPage() {
                         id={`select-${key}`}
                         value=""
                         label={key}
+                        required                        
                         onChange={e => handleProductAttributeValue(key, e.target.value)}
                     >
                         {missingAtttributesOptions[key] && missingAtttributesOptions[key].length ? (
@@ -195,6 +197,7 @@ function MainPage() {
                             label="Type Manually"
                             sx={{ minWidth: 250, m: 1 }}
                             value={value}
+                            required
                             onChange={e => handleProductAttributeValue(key, e.target.value)}
                         />
                     )}
@@ -212,6 +215,7 @@ function MainPage() {
                 InputProps={{
                     readOnly: true,
                 }}
+                required
                 onChange={e => handleProductAttributeValue(key, e.target.value)}
             />
         )
@@ -221,20 +225,20 @@ function MainPage() {
         <Grid container spacing={2} sx={{ p: 2 }}>
             <Grid item xs={12} sm={5} md={4} lg={3}>
                 <Card>
-                    <CardContent>
-                        <TextField
-                            id="outlined-basic"
-                            fullWidth
-                            label="Search"
-                            variant="outlined"
-                            InputProps={{
-                                endAdornment: (
-                                    <InputAdornment position="end">
-                                        <SearchIcon />
-                                    </InputAdornment>
-                                ),
-                            }}
-                        />
+                    <TextField
+                        id="outlined-basic"
+                        fullWidth
+                        label="Search"
+                        variant="outlined"
+                        InputProps={{
+                            endAdornment: (
+                                <InputAdornment position="end">
+                                    <SearchIcon />
+                                </InputAdornment>
+                            ),
+                        }}
+                    />
+                    <CardContent style={{ minHeight: '0px', maxHeight: '400px', overflow: 'auto' }}>
                         {productItems}
                     </CardContent>
                 </Card>
@@ -245,7 +249,7 @@ function MainPage() {
                 sm={7}
                 md={8}
                 lg={9}
-                sx={{ display: { md: 'flex' }, justifyContent: 'center' }}
+                sx={{ display: { md: 'flex' }, justifyContent: 'center', alignItems: 'center'}}
             >
                 <Box sx={{ maxWidth: 800 }}>
                     <Box
@@ -254,11 +258,12 @@ function MainPage() {
                             fontWeight: 'bold',
                             textTransform: 'capitalize',
                             m: 1,
+                            textAlign: 'center',
                         }}
                     >
                         Product Description
                     </Box>
-                    <form>
+                    <form style={{display:'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center'}}>
                         {productAttributes}
 
                         {selectedProduct && (

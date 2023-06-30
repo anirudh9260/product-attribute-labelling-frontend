@@ -108,7 +108,7 @@ const TopSearch = () => {
                 justifyContent: 'center',
             }}
         >
-            <FormControl sx={{ m: 1, minWidth: 250 }}>
+            <FormControl sx={{ m: 1, minWidth: {xs: 350, sm: 150, md: 200, lg: 250} }}>
                 <InputLabel id="demo-simple-select-helper-label">
                     Family
                 </InputLabel>
@@ -122,7 +122,7 @@ const TopSearch = () => {
                     {familyItems}
                 </Select>
             </FormControl>
-            <FormControl sx={{ m: 1, minWidth: 250 }}>
+            <FormControl sx={{ m: 1, minWidth: {xs: 350, sm: 150, md: 200, lg: 250} }}>
                 <InputLabel id="demo-simple-select-helper-label">
                     Brand
                 </InputLabel>
@@ -136,7 +136,7 @@ const TopSearch = () => {
                     {brandItems}
                 </Select>
             </FormControl>
-            <FormControl sx={{ m: 1, minWidth: 250 }}>
+            <FormControl sx={{ m: 1, minWidth: {xs: 350, sm: 150, md: 200, lg: 250} }}>
                 <InputLabel id="demo-simple-select-helper-label">
                     Category
                 </InputLabel>
@@ -151,17 +151,19 @@ const TopSearch = () => {
                 </Select>
             </FormControl>
             <Button
-                sx={{ m: 2, ml: 5, display: { md: 'flex' }, minWidth: 150 }}
+                // sx={{ m: 2, ml: 5, display: { md: 'flex' }, minWidth: 150 }}
                 variant="contained"
                 endIcon={<SearchIcon />}
+                sx={{ m: 2, ml: 5, display: {md: 'flex'}, justifyContent: 'center', alignItems: 'center', minWidth: 150}}
                 onClick={handleSearch}
             >
                 Search
             </Button>
             <Button
-                sx={{ m: 2, ml: 1, display: { md: 'flex' }, minWidth: 150 }}
+                // sx={{ m: 2, ml: 1, display: { md: 'flex' }, minWidth: 150 }}
                 variant="contained"
                 endIcon={<RefreshIcon />}
+                sx={{ m: 2, ml: 5, display: {md: 'flex'}, justifyContent: 'center', alignItems: 'center', minWidth: 150}}
                 onClick={handleReset}
             >
                 Reset
